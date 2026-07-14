@@ -30,9 +30,40 @@ SELECT COUNT(*) FROM observations WHERE region_id = 2;
 SELECT COUNT(*) FROM observations WHERE observation_date = '1998-08-08';
 
 -- MISSION 2
--- Your query here;
+-- Your query here; 
+SELECT region_id, COUNT(*) 
+FROM observations 
+GROUP BY region_id 
+ORDER BY COUNT(*) DESC 
+LIMIT 1;
 
+-- #6.2
+SELECT region_id, COUNT(*) 
+FROM observations 
+GROUP BY region_id 
+HAVING COUNT(*) = (
+    SELECT MAX(cuenta) FROM (
+        SELECT COUNT(*) AS cuenta
+        FROM observations
+        GROUP BY region_id
+    ) AS subquery
+);
 
+SELECT species_id, COUNT(*)
+FROM observations
+GROUP BY species_id
+ORDER BY COUNT(*) DESC
+LIMIT 5;
+
+SELECT species_id, COUNT(*)
+FROM observations
+GROUP BY species_id
+HAVING COUNT(*) > 4;
+
+SELECT observer, COUNT(*)
+FROM observations
+GROUP BY observer
+ORDER BY COUNT(*) DESC;
 
 -- MISSION 3
 -- Your query here;
