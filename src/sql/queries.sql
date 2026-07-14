@@ -67,10 +67,23 @@ ORDER BY COUNT(*) DESC;
 
 -- MISSION 3
 -- Your query here;
+SELECT * 
+FROM observations AS obs
+JOIN regions AS reg ON obs.region_id = reg.id;
 
+SELECT *
+FROM observations AS obs
+JOIN species AS spe ON obs.species_id = spe.id;
+
+SELECT obs.region_id, spe.scientific_name, COUNT(*)
+FROM observationS AS obs
+JOIN species AS spe ON obs.species_id = spe.id
+GROUP BY obs.region_id, spe.scientific_name
+ORDER BY COUNT(*) DESC;
 
 -- MISSION 4
 -- Your query here;
+
 
 
 -- MISSION 5
