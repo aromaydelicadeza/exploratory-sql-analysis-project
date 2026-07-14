@@ -76,28 +76,20 @@ FROM observations AS obs
 JOIN species AS spe ON obs.species_id = spe.id;
 
 SELECT obs.region_id, spe.scientific_name, COUNT(*)
-FROM observationS AS obs
+FROM observations AS obs
 JOIN species AS spe ON obs.species_id = spe.id
 GROUP BY obs.region_id, spe.scientific_name
 ORDER BY COUNT(*) DESC;
 
 -- MISSION 4
 -- Your query here;
+INSERT INTO observations VALUES
+(501,1,2, 'Javiera', '2026-07-14', -20.594380, 139.54472,3);
+
+UPDATE observations
+SET observer = 'observer9876589'
+WHERE observer = 'Javiera';
+
+DELETE FROM observations WHERE id = 501;
 
 
-
--- MISSION 5
--- Your query here;
-
-
-
--- MISSION 6
--- Your query here;
-
-
--- MISSION 7
--- Your query here;
-
-
--- MISSION 8
--- Your query here;
